@@ -85,6 +85,7 @@ pub(crate) mod moov;
 pub(crate) mod mp4a;
 pub(crate) mod mvex;
 pub(crate) mod mvhd;
+pub(crate) mod opus;
 pub(crate) mod smhd;
 pub(crate) mod stbl;
 pub(crate) mod stco;
@@ -106,10 +107,33 @@ pub(crate) mod vmhd;
 pub(crate) mod vp09;
 pub(crate) mod vpcc;
 
+pub use dinf::*;
 pub use emsg::EmsgBox;
 pub use ftyp::FtypBox;
+pub use hdlr::HdlrBox;
+pub use mdhd::MdhdBox;
+pub use mdia::MdiaBox;
+pub use mfhd::MfhdBox;
+pub use minf::MinfBox;
 pub use moof::MoofBox;
 pub use moov::MoovBox;
+pub use mvex::MvexBox;
+pub use mvhd::MvhdBox;
+pub use opus::*;
+pub use smhd::SmhdBox;
+pub use stbl::StblBox;
+pub use stco::StcoBox;
+pub use stsc::StscBox;
+pub use stsd::StsdBox;
+pub use stsz::StszBox;
+pub use stts::SttsBox;
+pub use tfdt::TfdtBox;
+pub use tfhd::TfhdBox;
+pub use tkhd::*;
+pub use traf::TrafBox;
+pub use trak::TrakBox;
+pub use trex::TrexBox;
+pub use trun::TrunBox;
 
 pub const HEADER_SIZE: u64 = 8;
 // const HEADER_LARGE_SIZE: u64 = 16;
@@ -198,7 +222,10 @@ boxtype! {
     DayBox => 0xa9646179,
     CovrBox => 0x636f7672,
     DescBox => 0x64657363,
-    WideBox => 0x77696465
+    WideBox => 0x77696465,
+    DopsBox => 0x644F7073,
+    OpusBox => 0x4F707573
+
 }
 
 pub trait Mp4Box: Sized {
